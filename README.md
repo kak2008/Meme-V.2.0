@@ -11,7 +11,6 @@ In order to run this app. Download the repository, open it on XCode, build & run
 
 ## Implementation
 This app has multiple view controllers:
-- __Login View Controller__: - This view controller allows user to login either using Udacity or Facebook credentials. 
 
 - Application uses AVFoundation, UIKit.
 
