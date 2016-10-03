@@ -19,9 +19,9 @@ In order to run this app. Download the repository, open it on XCode, build & run
 
 - __Meme Table view controller__: - This view controller consists of images(memes) shown in table view cells. User can see them in detail, select and delete. User can add few more memes by tapping add button on top.
 
-- __Detail Meme view controller__: - This view controller consists of image viewer where it shows the memes in detail. This view controller pops up whenever user taps on the image cell in either table or collection view controller
+- __Detail Meme view controller__: - This view controller consists of image viewer where it shows the memes in detail. This view controller pops up whenever user taps on the image cell in either table or collection view controller.
 
-- Edit option on top of detail view controller will let user to edit the existing memes. 
+- Edit option on top of detail view controller will let user to edit the existing memes 
 
 - Save option will let user to override the existing meme with the newly modified meme.
 
