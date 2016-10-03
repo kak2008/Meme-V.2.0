@@ -13,7 +13,7 @@ In order to run this app. Download the repository, open it on XCode, build & run
 
 - __Meme editor view controller__: - This view controller consists of image viewer and two text fields. User can take a picture either cliking the camera button or choose a picture from existing album.
 
-- Selected image will be appeared on image viewer, where user is allowed to edit the text fields. The Meme can be saved and shared in social media such as facebook, twitter, etc.
+- Selected image will be appeared on image viewer, where user is allowed to edit the text fields. The Meme can be saved and shared in social media such as facebook, twitter, etc
 
 - __Meme Collection view controller__: - This view controller consists collection of images shown in collection items. User can see them in detail, select and delete. User can add few more memes by tapping add button on top.
 
