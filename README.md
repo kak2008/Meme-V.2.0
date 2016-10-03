@@ -15,9 +15,9 @@ In order to run this app. Download the repository, open it on XCode, build & run
 
 - Selected image will be appeared on image viewer, where user is allowed to edit the text fields. The Meme can be saved and shared in social media such as facebook, twitter, etc.
 
-- __Meme Collection view controller__: - This view controller consists collection of images shown in collection items. User can see them in detail, select and delete. User can add few more memes by tapping add button on top
+- __Meme Collection view controller__: - This view controller consists collection of images shown in collection items. User can see them in detail, select and delete. User can add few more memes by tapping add button on top.
 
-- __Meme Table view controller__: - This view controller consists of images(memes) shown in table view cells. User can see them in detail, select and delete. User can add few more memes by tapping add button on top.
+- __Meme Table view controller__: - This view controller consists of images(memes) shown in table view cells. User can see them in detail, select and delete. User can add few more memes by tapping add button on top
 
 - __Detail Meme view controller__: - This view controller consists of image viewer where it shows the memes in detail. This view controller pops up whenever user taps on the image cell in either table or collection view controller.
 
