@@ -23,6 +23,8 @@ In order to run this app. Download the repository, open it on XCode, build & run
 
 - Edit option on top of detail view controller will let user to edit the existing memes. 
 
+- Save option will let user to override the existing meme with the newly modified meme.
+
 - Application uses AVFoundation, UIKit.
 
 ## Requirements
