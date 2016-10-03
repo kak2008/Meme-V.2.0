@@ -21,6 +21,8 @@ In order to run this app. Download the repository, open it on XCode, build & run
 
 - __Detail Meme view controller__: - This view controller consists of image viewer where it shows the memes in detail. This view controller pops up whenever user taps on the image cell in either table or collection view controller.
 
+- Edit option on top of detail view controller will let user to edit the existing memes. 
+
 - Application uses AVFoundation, UIKit.
 
 ## Requirements
