@@ -2,7 +2,7 @@
 
 Meme is a fun photo(Meme) sharing app.
 
-MemeMe is a meme-generating app that enables a user to attach a caption to a picture from their phone. After adding text to an image chosen from the Photo Album or Camera, the user can share it with friends. MemeMe also temporarily stores sent memes which users can browse in a table or a grid. 
+MemeMe is a meme-generating app that enables a user to attach captions to a picture from their phone. After adding text to an image chosen from the Photo Album or Camera, the user can share it with friends. MemeMe also temporarily stores sent memes which users can browse in a table or a grid. 
 
 User can save the memes which appear on table view cell or collection view items. user can select, edit and delete the memes. Edit option will take to editor where user can re-edit the meme and save again. If user tap on meme, meme detail view will pop up with the saved meme image.
 
