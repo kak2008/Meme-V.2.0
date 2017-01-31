@@ -19,7 +19,7 @@ class MemeCollectionViewController: UICollectionViewController
         super.viewDidLoad()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.collectionView?.reloadData()
     }
@@ -28,17 +28,17 @@ class MemeCollectionViewController: UICollectionViewController
     // MARK: - Collection View cell Methods
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return SavedMemes.sharedInstace.arrayOfMemes.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! MemeCollectionViewCell
         cell.collectionViewCellImageViewer.image = SavedMemes.sharedInstace.arrayOfMemes[indexPath.item].memedImage!
 
-        cell.layer.borderColor = UIColor.grayColor().CGColor
+        cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         
@@ -48,21 +48,21 @@ class MemeCollectionViewController: UICollectionViewController
     
     // MARK: - Collection View Segue Methods
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         //NSLog("You selected cell number: \(indexPath.item)!")
-        self.performSegueWithIdentifier("CollectionViewSegueToMemeDetailView", sender: indexPath)
+        self.performSegue(withIdentifier: "CollectionViewSegueToMemeDetailView", sender: indexPath)
         SavedMemes.sharedInstace.selectedIndex = (indexPath.item)
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         
         if (segue.identifier == "CollectionViewSegueToMemeDetailView")
         {
-            let detailVC = (segue.destinationViewController as! DetailMemeViewController)
-            let svaaa = sender as! NSIndexPath
+            let detailVC = (segue.destination as! DetailMemeViewController)
+            let svaaa = sender as! IndexPath
             let data = SavedMemes.sharedInstace.arrayOfMemes[svaaa.item]
             detailVC.image = data.memedImage
             detailVC.memeDetails = SavedMemes.sharedInstace.arrayOfMemes[svaaa.item]

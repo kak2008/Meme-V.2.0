@@ -17,69 +17,69 @@ class MemeTableViewController: UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
-        view.backgroundColor = UIColor .lightGrayColor()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
+        view.backgroundColor = UIColor.lightGray
     }
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if SavedMemes.sharedInstace.arrayOfMemes.count == 0
         {
-            let object: AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController")
+            let object: AnyObject = storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController")
             let memeFirstVC = object as! MemeEditorViewController
-            presentViewController(memeFirstVC, animated: true, completion: nil)
+            present(memeFirstVC, animated: true, completion: nil)
         }
     }
     
     
     // MARK: - Table View cell Methods
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return SavedMemes.sharedInstace.arrayOfMemes.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell")
         
         cell?.textLabel?.text = "\(SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].topText)... \(SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].bottomText)"
         cell?.imageView?.image = SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].memedImage
        
-        cell?.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell!.layer.borderColor = UIColor.grayColor().CGColor
+        cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell!.layer.borderColor = UIColor.gray.cgColor
         cell!.layer.borderWidth = 1
         cell!.layer.cornerRadius = 8
         
         return cell!
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
     
     // MARK: - Table View Segue Methods
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
           //  NSLog("You selected cell number: \(indexPath.row)!")
-            self.performSegueWithIdentifier("TableViewSegueToMemeDetailView", sender: self)
+            self.performSegue(withIdentifier: "TableViewSegueToMemeDetailView", sender: self)
             SavedMemes.sharedInstace.selectedIndex = (indexPath.row)
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         
         if (segue.identifier == "TableViewSegueToMemeDetailView")
         {
-            let detailVC = (segue.destinationViewController as! DetailMemeViewController)
+            let detailVC = (segue.destination as! DetailMemeViewController)
             let selectedIndexPath =  tableView.indexPathForSelectedRow
             let data = SavedMemes.sharedInstace.arrayOfMemes[(selectedIndexPath?.row)!]
             detailVC.image = data.memedImage
@@ -87,12 +87,12 @@ class MemeTableViewController: UITableViewController
         }
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
-        if editingStyle == UITableViewCellEditingStyle.Delete
+        if editingStyle == UITableViewCellEditingStyle.delete
         {
-            SavedMemes.sharedInstace.arrayOfMemes.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            SavedMemes.sharedInstace.arrayOfMemes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
     

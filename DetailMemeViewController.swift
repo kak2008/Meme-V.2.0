@@ -23,9 +23,9 @@ class DetailMemeViewController: UIViewController
     }
 
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let detailVC = (segue.destinationViewController as! MemeEditorViewController)
+        let detailVC = (segue.destination as! MemeEditorViewController)
         detailVC.memeCurrentDetails = memeDetails
         editButtonPressed = true
     }
