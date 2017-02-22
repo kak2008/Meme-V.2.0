@@ -11,8 +11,8 @@ import UIKit
 
 struct MemeModel
 {
-    var topText: String!
-    var bottomText: String!
+    var topText: String? = nil
+    var bottomText: String? = nil
     var originalImage: UIImage!
     var memedImage: UIImage!
 }

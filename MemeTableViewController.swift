@@ -48,7 +48,8 @@ class MemeTableViewController: UITableViewController
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell")
         
-        cell?.textLabel?.text = "\(SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].topText)... \(SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].bottomText)"
+        cell?.textLabel?.text = "\(SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].topText! as String)... \(SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].bottomText! as String)"
+        print("the text", SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].topText! as String)
         cell?.imageView?.image = SavedMemes.sharedInstace.arrayOfMemes[indexPath.row].memedImage
        
         cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
