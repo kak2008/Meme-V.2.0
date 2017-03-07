@@ -96,6 +96,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
             pickerController = imagePickerWith(.camera)
             pickerController.allowsEditing = false
             pickerController.cameraCaptureMode = .photo
+            pickerController.delegate = self
             present(pickerController, animated: true, completion: {})
         }
         else
